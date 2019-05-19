@@ -7,7 +7,7 @@ class UsersController < ApplicationController
    post '/signup' do 
     if params[:username] == "" || params[:password] == ""
       flash[:error] = "ERROR: Please enter username and password to register."
-      redirect to '/signup'
+      erb :'/signup'
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   
   get '/logout' do
     session.clear
-    redirect to '/'
+    redirect '/'
   end
   
 end
