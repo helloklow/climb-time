@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
-      redirect '/climbs/home'
+      redirect '/users/home'
     end
   end
   

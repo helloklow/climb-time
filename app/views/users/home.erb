@@ -1,0 +1,18 @@
+<h1>Welcome, <%= @user.username %>!</h1>
+
+<a href="/climbs/new"><input type="submit" value="Add Climb"></a>
+
+<br><br>
+
+<h3><%= @user.username %>'s ClimbTime Collection: </h3>
+
+<% @user.climbs.each do |c| %>
+  <%= c.name %> - <em><%= c.status.capitalize %></em> <a href="/climbs/<%= c.id %>"><input type="submit" value="View"></a> <a href="/climbs/<%= c.id %>/edit"><input type="submit" value="Edit"></a> <br>
+<%end%>
+
+
+<br><br><br>
+
+<a href="/logout"><input type="submit" value="Logout"></a>
+
+<br>
