@@ -19,6 +19,17 @@ class ApplicationController < Sinatra::Base
   end
   
   helpers do
+    def login(username, password)
+      session[:username] = username
+      @user = User.find_by(username: params[:username])
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect "/home"
+      else
+        redirect "/login"
+      end
+    end
+    
     def logged_in?
       !!session[:user_id]
     end 

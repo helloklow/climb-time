@@ -19,14 +19,12 @@ class UsersController < ApplicationController
     erb :'users/login'
   end 
   
-  post '/login' do
-    user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect "/users/home"
-    else
+  post "/login" do
+    if params[:username] == "" || params[:password] == ""
       flash[:error] = "ERROR: Please enter username and password to log in."
-      redirect '/users/login'
+      redirect '/login'
+    else
+      login(params[:username], params[:password])    
     end
   end
   
