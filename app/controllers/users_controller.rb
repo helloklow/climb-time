@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
-      redirect '/home'
+      redirect '/climbs/home'
     end
   end
   
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       redirect "/users/home"
     else
       flash[:error] = "ERROR: Please enter username and password to log in."
-      redirect '/login'
+      redirect '/users/login'
     end
   end
   
