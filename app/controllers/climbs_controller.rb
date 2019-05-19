@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
       erb :'/users/home'
     else
       redirect :'/login'
+    end
   end
   
   get '/climbs/new' do
@@ -18,6 +19,7 @@ class ReviewsController < ApplicationController
     else
       flash[:error] = "ERROR: Please log in to do that!"
       redirect '/login'
+    end
   end
   
   post '/climbs' do

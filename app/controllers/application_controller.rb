@@ -15,6 +15,7 @@ class ApplicationController < Sinatra::Base
       erb :'/users/home'
     else
       erb :index
+    end
   end
   
   helpers do
