@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class ClimbsController < ApplicationController
   
   get '/home' do
     if logged_in? && current_user
@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
       @user = current_user
       session[:user_id] = @user.id
       erb :'/climbs/new'
-    else
+    elses
       flash[:error] = "ERROR: Please log in to do that!"
       redirect '/login'
     end
